@@ -1,16 +1,8 @@
-FROM ubuntu:14.04
+FROM mhart/alpine-node
 
-MAINTAINER Christoph Wiechert <wio@psitrax.de>
-MAINTAINER https://github.com/henszey
-
-RUN apt-get update
-ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get install -y nodejs
-
-RUN mkdir /app
-ADD . /app/
+COPY . /app/
 
 WORKDIR /app
 EXPOSE 8000
 
-CMD ["nodejs", "server.js"]
+CMD ["node", "server.js"]
